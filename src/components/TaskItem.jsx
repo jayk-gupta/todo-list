@@ -19,10 +19,10 @@ function TaskItem(props) {
   return (
     <div>
       <div
-        className="bg-blue-200 p-4 text-lg m-2 flex justify-between rounded-lg"
+        className="bg-[#7c2bff] p-6 drop-shadow-3xl  sm:text-xl m-2 flex justify-between rounded-lg text-white"
         style={{
           backgroundColor: taskStatus ? "#8ce99a" : "",
-          opacity: taskStatus ? '0.5':'1'
+          opacity: taskStatus ? "0.5" : "1",
         }}
       >
         <h2>{props.title}</h2>

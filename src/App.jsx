@@ -25,11 +25,11 @@ const App = () => {
   };
 
   const deleteHandler = (taskName) => {
-    setTasks((prevTasks) => prevTasks.filter((task) => task !== taskName));
+    setTasks((prevTasks) => prevTasks.filter((task) => task.title !== taskName));
   };
 
   return (
-    <div className="App flex flex-col items-center gap-12 p-12">
+    <div className="App flex h-screen bg-gradient-to-r from-purple-500 to-pink-500 flex-col items-center gap-12 p-12">
       <TaskInput onSaveTaskData={addTaskHandler} />
       <Item items={taskList} onDelete={deleteHandler} />
     </div>
