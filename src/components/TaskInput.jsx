@@ -20,18 +20,16 @@ import styled from "styled-components";
 const FormControl = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 12px;
+  gap: 32px;
 
   @media (max-width: 640px) {
     flex-direction: column;
-    gap:20px;
+    gap: 20px;
   }
 
-  ${
-    "" /* 
-& label {
-color: ${props => props.invalid ? 'red': 'white'}
-} */
+  & label {
+    ${"" /* color: ${props => props.invalid ? 'red' : 'white'}; */}
+    ${"" /* color:white; */}
   }
 
   & input {
@@ -43,7 +41,7 @@ color: ${props => props.invalid ? 'red': 'white'}
 props for styling:
 We pass an arrow fucntion and it should return the text that should be there in that postion
 
-*/ 
+*/
 function TaskInput(props) {
   const [enteredTask, setTask] = useState("");
   const [isValid, setIsValid] = useState(true);
@@ -55,7 +53,7 @@ function TaskInput(props) {
   const clickHanlder = () => {
     if (enteredTask.trim().length === 0) {
       setIsValid(false);
-      alert('Please enter a task');
+      alert("Please enter a task");
       return;
     }
     const taskData = {
@@ -67,22 +65,21 @@ function TaskInput(props) {
 
   return (
     // <div className={`flex gap-3 `}>
-    <FormControl invalid={!isValid}>
-        <label className="text-white text-lg">
-          Enter Task
-          {/* INPUT */}
-          <input
-            type="text"
-            className={`border-2 p-2 rounded-xl mx-4 text-black
+    <FormControl invalid={!isValid} className="items-center">
+      <label className="text-white text-xl" htmlFor="input">
+        Enter Task
+      </label>
+      {/* INPUT */}
+      <input
+        type="text"
+        className={`border-2 p-2 rounded-xl  text-black
    `}
-            onChange={inputHanlder}
-            value={enteredTask}
-          ></input>
-        </label>
-
+        onChange={inputHanlder}
+        value={enteredTask}
+      ></input>
       {/* BUTTON */}
       <button
-        className="hover:border-2 py-4 sm:px-4 bg-purple-500 hover:text-white rounded-xl text-slate-200 hover:bg-purple-600"
+        className="hover:border-2 py-4 w-full sm:px-4 bg-purple-500 hover:text-white rounded-xl text-slate-200 hover:bg-purple-600"
         onClick={clickHanlder}
       >
         Add
